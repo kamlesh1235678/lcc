@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Home{% endblock %}</title>
+{% block body %}
+	
+<section class="bannr-sec">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="bannr-content text-center">
+					<h1 class="text-white">LowCost Construction</h1>
+					<p>Providing Low-Cost Construction Services for Your Dream Projects</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="about-sec tp-space">
+	<div class="container">
+		<div class="heading">
+			<div class="heading-icon">
+				<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+			</div>
+			<div class="heading-content">
+				<h3>About Us</h3>
+				<h6 class="text-white">Building Affordable Homes with Quality Construction</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-7 col-lg-12 col-md-12 col-sm-12">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<div class="about-lft-img">
+							<img src="{% static 'assets/images/about1.webp' %}" alt="">
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<p class="mb-5">LowCost Construction started in 2025 with a mission to provide affordable and high-quality construction services. We specialize in supplying construction materials and labor for all your construction needs. Our licensed team, including experts, ensures the highest standards for every project, from materials supply to labor management.</p>
+						<a href="tel:9887701938" class="thm-btn">Enquiry Now</a>
+					</div>
+					<div class="col-lg-12 about-count">
+						<ul class="row g-2 justify-content-center">
+							<li class="col-lg-3 col-md-3 col-sm-4 col-6">
+								<div class="about-count-innr">
+									<h4 class="text-white"><span class="counter">{{labour_count}}</span> +</h4>
+									<p>SKILLED WORKERS</p>
+								</div>
+							</li>
+							<li class="col-lg-3 col-md-3 col-sm-4 col-6">
+								<div class="about-count-innr">
+									<h4 class="text-white"><span class="counter">{{matrial_count}}</span> +</h4>
+									<p> MATRIAL NO.</p>
+								</div>
+							</li>
+							<li class="col-lg-3 col-md-3 col-sm-4 col-6">
+								<div class="about-count-innr">
+									<h4 class="text-white"><span class="counter">30</span> +</h4>
+									<p>YEARS IN BUSINESS</p>
+								</div>
+							</li>
+							<li class="col-lg-3 col-md-3 col-sm-4 col-6">
+								<div class="about-count-innr">
+									<h4 class="text-white"><span class="counter">{{review_count}}</span> +</h4>
+									<p>HAPPY CLIENTS</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 d-xl-block d-none">
+				<div class="about-rgt-img">
+					<img src="{% static 'assets/images/about2.png' %}" alt="" class="img-fluid">
+					<img src="{% static 'assets/images/banner.png' %}" alt="" class="border-img img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="product-sec tp-space">
+	<div class="container">
+		<div class="heading justify-content-center mb-3">
+			<div class="heading-icon">
+				<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+			</div>
+			<div class="heading-content">
+				<h3> Top Rated <br>Labour.</h3>
+			</div>
+		</div>
+		<div class="row">
+			{% for x in labour_list %}
+			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+				<div class="product-innr">
+					<div class="product-img">
+						<img src="{{x.image.url}}" alt="">
+						<span class="product-rating"><i class="fas fa-star"></i> 4.9</span>
+					</div>
+					<div class="product-content">
+						<h4><a href="/labour-update/{{x.pk}}/">{{x.expert_title}}</a></h4>
+						<p><i class="fas fa-map-marker-alt me-1"></i> {{x.address}}</p>
+						<h6 class="text-white">{{x.name}}</h6>
+						
+						<div class="product-prc">
+							<div>
+								<p>{{x.mobile}}</p>
+							</div>
+							<div>
+								<a href="javascript:void(0);" class="labour-fav" data-id="{{ x.id }}"><i class="far fa-bookmark"></i></a>
+								<a href="javascript:void(0);" class="labour-com" data-id="{{ x.id }}"><i class="fas fa-sliders-h"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-social">
+						<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+						<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+						<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="col-lg-12 text-center">
+				<a href="/labour-list/" class="thm-btn mt-5">View All</a>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="product-sec tp-space">
+	<div class="container">
+		<div class="heading justify-content-center mb-3">
+			<div class="heading-icon">
+				<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+			</div>
+			<div class="heading-content">
+				<h3> luxurious <br>matrial.</h3>
+			</div>
+		</div>
+		<div class="row">
+			{% for x in matrial_list %}
+			<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+				<div class="product-innr">
+					<div class="product-img">
+						<img src="{{x.image.url}}" alt="">
+						<span class="product-rating"><i class="fas fa-star"></i> 4.9</span>
+					</div>
+					<div class="product-content">
+						<h4><a href="/matrial-update/{{x.pk}}/">{{x.name}}</a></h4>
+						<!-- <p><i class="fas fa-map-marker-alt me-1"></i> {{x.name}}</p> -->
+						<h6 class="text-white">{{x.type}}</h6>
+						
+						<div class="product-prc">
+							<div>
+								<p>INR {{x.start_rate}}-{{x.end_rate}}</p>
+							</div>
+							<div>
+								<a href="javascript:void(0);" class="matrial-fav" data-id="{{ x.id }}"><i class="far fa-bookmark"></i></a>
+								<a href="javascript:void(0);" class="matrial-com" data-id="{{ x.id }}"><i class="fas fa-sliders-h"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="product-social">
+						<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+						<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+						<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<div class="col-lg-12 text-center">
+				<a href="/matrial-list/" class="thm-btn mt-5">View All</a>
+			</div>
+		</div>
+	</div>
+</section>
+		
+		
+		<section class="project-sec tp-space">
+			<div class="container">
+				<div class="heading new-head">
+					<div class="heading-icon">
+						<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+					</div>
+					<div class="heading-content">
+						<h3> Explore our experts</h3>
+						<p>Gain valuable real estate expertise with our latest insights from industry experts.</p>
+					</div>
+				</div>
+				<div class="owl-carousel owl-theme" id="project-slider">
+					<div class="row project-slider-innr g-0">
+						<div class="col-lg-4 col-md-12">
+							<img src="{% static 'assets/images/slider3.webp' %}" alt="" class="w-100">
+						</div>
+						<div class="col-lg-8 col-md-12">
+							<div class="project-slider-contnt">
+								<h4>Affordable Housing Solutions</h4>
+								<p class="mb-3">Low Cost Construction Service Point</p>
+								<p class="mb-3">Customized Home Building</p>
+								<p class="mb-3">Sustainable Construction</p>
+								<p class="mb-5">We specialize in cost-effective housing solutions, ensuring quality and durability at the best price.</p>
+								<a href="javascript:void(0);" class="thm-btn">View All</a>
+							</div>
+						</div>
+					</div>
+					<div class="row project-slider-innr g-0">
+						<div class="col-lg-4">
+							<img src="{% static 'assets/images/slider2.webp' %}" alt="" class="w-100">
+						</div>
+						<div class="col-lg-8">
+							<div class="project-slider-contnt">
+								<h4>Reliable Labour Supply</h4>
+								<p class="mb-3">Labour Provider</p>
+								<p class="mb-3">Skilled & Unskilled Workforce</p>
+								<p class="mb-3">On-Demand Manpower</p>
+								<p class="mb-5">We connect construction projects with the right workforce to ensure smooth operations and efficiency.</p>
+								<a href="javascript:void(0);" class="thm-btn">View All</a>
+							</div>
+						</div>
+					</div>
+					<div class="row project-slider-innr g-0">
+						<div class="col-lg-4">
+							<img src="{% static 'assets/images/slider1.webp' %}" alt="" class="w-100">
+						</div>
+						<div class="col-lg-8">
+							<div class="project-slider-contnt">
+								<h4>Quality Construction Materials</h4>
+								<p class="mb-3">Material Provider</p>
+								<p class="mb-3">Cement, Steel & Bricks</p>
+								<p class="mb-3">Bulk & Retail Supply</p>
+								<p class="mb-5">Get the best quality materials at competitive prices for all your construction needs.</p>
+								<a href="javascript:void(0);" class="thm-btn">View All</a>
+							</div>
+						</div>
+					</div>
+					<div class="row project-slider-innr g-0">
+						<div class="col-lg-4">
+							<img src="{% static 'assets/images/slider4.webp' %}" alt="" class="w-100">
+						</div>
+						<div class="col-lg-8">
+							<div class="project-slider-contnt">
+								<h4>Real Estate Solutions</h4>
+								<p class="mb-3">Properties Provider</p>
+								<p class="mb-3">Residential & Commercial</p>
+								<p class="mb-3">Affordable & Premium Listings</p>
+								<p class="mb-5">Find the perfect property that suits your budget and requirements with our expert assistance.</p>
+								<a href="javascript:void(0);" class="thm-btn">View All</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</section>
+		
+		
+		
+		<section class="ofc-location tp-space">
+			<div class="container">
+				<div class="heading new-head">
+					<div class="heading-icon">
+						<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+					</div>
+					<div class="heading-content">
+						<h3>Visit Our office</h3>
+					</div>
+				</div>
+				<div class=" owl-carousel owl-theme" id="location-slider">
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/project1.webp' %}" alt="">
+					</div>
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/office-02.webp' %}" alt="">
+					</div>
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/project2.webp' %}" alt="">
+					</div>
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/about3.png' %}" alt="">
+					</div>
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/project3.webp' %}" alt="">
+					</div>
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/office-02.webp' %}" alt="">
+					</div>
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/project4.webp' %}" alt="">
+					</div>
+					<div class="item location-innr">
+						<img src="{% static 'assets/images/project5.webp' %}" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="cta-sec tp-space">
+			<div class="container">
+				<div class="heading new-head">
+					<div class="heading-icon">
+						<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+					</div>
+					<div class="heading-content">
+						<h3>Advisory Experts</h3>
+						<p>Fill form below and our agent will contact you shortly</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="cta-innr">
+							<form action="" id="contact-add" class="row align-items-end">
+								{% csrf_token %}
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<input type="text" name="name" class="form-control" placeholder="Enter Name">
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<input type="number" name="mobile" class="form-control" placeholder="Enter Phone Number">
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<textarea name="desc" id="" class="form-control" placeholder="Enter Description"></textarea>
+									
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<button class="thm-btn w-75" type="submit">Send</button>
+								</div>
+							</form>
+							<div class="row justify-content-center">
+								<div class="col-lg-4">
+									<div class="product-social">
+										<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+										<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+										<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		{% endblock body %} 

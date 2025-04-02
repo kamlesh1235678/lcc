@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Labour Details{% endblock %}</title>
+{% block body %}
+		<section class="agent-detal space mn-h">
+			<div class="container">
+				<h3 class="fz-28 fw-600 primary-clr font-2 text-center mb-3">Member Details</h3>
+				<div class="row">
+					<div class="col-lg-12 ">
+						<div class="agent-detal-inr p-20">
+							<div class="row">
+								<div class="col-xl-4 col-lg-3 col-md-3 col-sm-4 col-12">
+									<div class="agent-detal-inr-img"><a href="/labour-review-add/{{labour_list.pk}}/">
+										<img src="{{labour_list.image.url}}" alt=""></a>
+									</div>
+								</div>
+								<div class="col-xl-8 col-lg-9 col-md-9 col-sm-8 col-12">
+									<div class="agent-detal-inr-cntnt">
+										<h4 class="fz-22 fw-400 text-white text-uppercase">{{labour_list.name}}</h4>
+										<h5 class="fz-14 fw-400 text-secondary text-capitalize">{{labour_list.expert_title}}</h5>
+										<p> <span>Experience:</span> <span>3+ years</span> </p>
+										<p> <span>Mobile:</span> <span>{{ labour_list.mobile }}</span> </p>
+										<p> <span>Languages:</span> <span>Hindi</span> </p>
+										<div class="inquiry-btn">
+											<div class="product-social">
+												<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+												<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+												<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+											</div>
+											<div>
+												<a href="tel:{{labour_list.mobile}}" class="thm-btn">Call Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="agent-detal-desc p-10">
+										<p class="fz-14 mb-3">{{labour_list.desc}}.</p>
+										<p class="fz-14 mb-3">{{labour_list.desc}}.
+											{{labour_list.desc}}.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="review-sec agent-review tp-space">
+			<div class="container">
+				<h3 class="fz-28 fw-600 font-2 text-center font-2 primary-clr mb-5">Review</h3>
+				<div class="row align-items-center">
+					<div class="col-lg-12">
+						<div class="review-rgt ">
+							<div class="owl-carousel owl-theme" id="testimonial-slider">
+								{% for x in labour_review %}
+								<div class="item review-slider-item">
+									<div class="review-slider-innr">
+										<p>“{{x.desc}}”</p>
+										<div class="review-slider-innr-star">
+											<h5>{{x.mobile}}</h5>
+											<h5>{{x.user_name}}</h5>
+										</div>
+									</div>
+									<!-- <img src="{% static 'assets/images/testimonial-img-01.png' %}" alt=""> -->
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="agent-list agent-dtl-list tp-space">
+			<div class="container">
+				<h4 class="fz-28 fw-600 text-white text-center font-2 mb-4">Our Member</h4>
+				<div class="row justify-content-center">
+					{% for x in labours %}
+					<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+						<div class="product-innr">
+							<div class="product-img">
+								<img src="{{x.image.url}}" alt="">
+								<span class="product-rating"><i class="fas fa-star"></i> 4.9</span>
+							</div>
+							<div class="product-content">
+								<h4><a href="/labour-update/{{x.pk}}/">{{x.expert_title}}</a></h4>
+								<p><i class="fas fa-map-marker-alt me-1"></i> {{x.address}}</p>
+								<h6 class="text-white">{{x.name}}</h6>
+								
+								<div class="product-prc">
+									<div>
+										<p>{{x.mobile}}</p>
+									</div>
+									<div>
+										<a href="javascript:void(0);" class="labour-fav" data-id="{{ x.id }}"><i class="far fa-bookmark"></i></a>
+										<a href="javascript:void(0);" class="labour-com" data-id="{{ x.id }}"><i class="fas fa-sliders-h"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="product-social">
+								<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+								<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+								<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					
+				</div>
+			</div>
+		</section>
+		{% endblock body %}

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Add Labour Data{% endblock %}</title>
+{% block body %}
+	<section class="blog-sec space">
+		<div class="container">
+			<div class="blog-sec-innr" style="background-image: url('{% static "assets/images/contact-bnnr.png" %}');">
+				<div class="row">
+					<div class="col-lg-6 col-md-12 col-sm-12">
+						<div class="blog-content">
+							<h1>Add Labour Data</h1>
+							<h5 class="fz-20 text-white fw-600">Contribute to the Low-Cost Initiative</h5>
+							<p>Provide details about labor to be added to our affordable community-driven initiative. Your contribution will help foster growth and success within the community.</p>
+							<a href="tel:9887701938" class="thm-btn mt-4">Enquire now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="cta-sec tp-space">
+		<div class="container">
+			<div class="heading new-head">
+				<div class="heading-icon">
+					<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+				</div>
+				<div class="heading-content">
+					<h3>Add Labour as a Member of Low-Cost Initiative</h3>
+					<p>Become part of our initiative by adding your labor data. It's an affordable way to grow and contribute to a community-driven success.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="cta-innr">
+						<form id="labour-add" action="" class="row align-items-end" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+								<input type="text" name="name" class="form-control" placeholder="Enter Labour's Name">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+								<input type="number" name="mobile" class="form-control" placeholder="Enter Labour's Phone Number">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+								<input type="text" name="expert_title" class="form-control" placeholder="Labour's Role">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+								<input type="text" name="address" class="form-control" placeholder="Address">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+								<textarea name="desc" class="form-control" placeholder="Description"></textarea>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+								<input type="file" name="image" class="form-control" placeholder="Upload Labour Image">
+							</div>
+							
+							<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+								<button class="thm-btn w-75" type="submit">Submit</button>
+							</div>
+						</form>
+						
+						<div class="row justify-content-center">
+							<div class="col-lg-4">
+								<div class="product-social">
+									<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+									<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+									<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock body %}
+
+{% block script %} 
+<script>
+$(document).ready(function() {
+    $("#labour-add").on("submit", function(event) {
+        event.preventDefault();
+
+        // Create FormData object for file uploads
+        var formData = new FormData(this);
+
+        $.ajax({
+            type: "POST",
+            url: `/labour-add/`,
+            data: formData,
+            contentType: false,  // Prevent jQuery from setting content-type header
+            processData: false,  // Prevent jQuery from processing data
+            success: function(response) {
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = response.redirect_url;
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.'
+                });
+            }
+        });
+    });
+});
+
+</script>
+{% endblock script %}

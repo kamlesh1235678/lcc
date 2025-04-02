@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Contact{% endblock %}</title>
+{% block body %}
+		<section class="blog-sec space">
+			<div class="container">
+				<div class="blog-sec-innr" style="background-image: url('{% static "assets/images/contact-bnnr.png" %}');">
+					<div class="row">
+						<div class="col-lg-6 col-md-12 col-sm-12">
+							<div class="blog-content">
+								<h1>Hello </h1>
+								<h5 class="fz-20 text-white fw-600">How can help you</h5>
+								<p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as</p>
+								<a href="/contact/" class="thm-btn mt-4">Enquire now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contact-sec tp-space">
+			<div class="container">
+				<div class="heading new-head">
+					<div class="heading-icon">
+						<img src="assets/images/heading-icon.png" alt="">
+					</div>
+					<div class="heading-content">
+						<h3>Contact Us</h3>
+						<p>Have questions or need assistance? Feel free to reach out to us!</p>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-4 col-md-4 col-sm-6">
+						<div class="contact-innr p-20">
+							<span class="fal fa-envelope"></span>
+							<h5 class="fz-20 fw-600 font-2 text-white">E-Mail</h5>
+							<a href="mailto:designobject@gmail.com">lowcost@gmail.com</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-6">
+						<div class="contact-innr p-20">
+							<span class="far fa-mobile"></span>
+							<h5 class="fz-20 fw-600 font-2 text-white">Mobile Number</h5>
+							<a href="tel:9887701938">9887701938</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-6">
+						<div class="contact-innr p-20 border-0">
+							<span class="far fa-map-marker-alt"></span>
+							<h5 class="fz-20 fw-600 font-2 text-white">Address</h5>
+							<a href="#">Govindpura kalwar road jaipur Rajasthan</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="cta-sec tp-space">
+			<div class="container">
+				<div class="heading new-head">
+					<div class="heading-icon">
+						<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+					</div>
+					<div class="heading-content">
+						<h3>Advisory Experts</h3>
+						<p>Fill form below and our agent will contact you shortly</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="cta-innr">
+							<form action="" id="contact-add" class="row align-items-end">
+								{% csrf_token %}
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<input type="text" name="name" class="form-control" placeholder="Enter Name">
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<input type="number" name="mobile" class="form-control" placeholder="Enter Phone Number">
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<textarea name="desc" id="" class="form-control" placeholder="Enter Description"></textarea>
+									
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<button class="thm-btn w-75" type="submit">Send</button>
+								</div>
+							</form>
+							<div class="row justify-content-center">
+								<div class="col-lg-4">
+									<div class="product-social">
+										<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+										<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+										<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		{% endblock body %}

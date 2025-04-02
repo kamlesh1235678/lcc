@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Comparison{% endblock %}</title>
+{% block body %}
+	
+		<section class="compression mn-h space">
+			<div class="container">
+				<h3 class="subhead text-center">Comparison Listings of Labour</h3>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="compression-innr">
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<td >Listing</td>
+											{% for x in labour_list %}
+											<td>
+												<div class="compression-img">
+													<img src="{{x.image.url}}" alt="">
+													<p>{{x.address}} </p>
+													<button class="compression-remove labour-com-delete" data-id="{{ x.id }}"><i class="far fa-times"></i></button>
+												</div>
+											</td>
+											{% endfor %}
+										</tr>
+									</thead>
+									<tbody>
+										
+										<tr>
+											<td>Name</td>
+											{% for x in labour_list %}
+											<td>{{x.name}}</td>
+											{% endfor %}
+										</tr>
+										
+										
+										<tr>
+											<td>Expert Title</td>
+											{% for x in labour_list %}
+											<td>{{x.expert_title}}</td>
+											{% endfor %}
+										</tr>
+										
+										
+										<tr>
+											<td>Mobile</td>
+											{% for x in labour_list %}
+											<td>{{x.mobile}}</td>
+											{% endfor %}
+										</tr>
+										
+										
+										<tr>
+											<td>Description</td>
+											{% for x in labour_list %}
+											<td>{{x.desc}}</td>
+											{% endfor %}
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container mt-4">
+				<h3 class="subhead text-center">Comparison Listings of Matrial</h3>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="compression-innr">
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<td >Listing</td>
+											{% for x in matrial_list %}
+											<td>
+												<div class="compression-img">
+													<img src="{{x.image.url}}" alt="">
+													<p>{{x.address}} </p>
+													<button class="compression-remove matrial-com-delete" data-id="{{ x.id }}"><i class="far fa-times"></i></button>
+												</div>
+											</td>
+											{% endfor %}
+										</tr>
+									</thead>
+									<tbody>
+										
+										<tr>
+											<td>Type</td>
+											{% for x in matrial_list %}
+											<td>{{x.type}}</td>
+											{% endfor %}
+										</tr>
+										
+										
+										<tr>
+											<td>Name</td>
+											{% for x in matrial_list %}
+											<td>{{x.name}}</td>
+											{% endfor %}
+										</tr>
+										
+										
+										<tr>
+											<td>Brand</td>
+											{% for x in matrial_list %}
+											<td>{{x.brand}}</td>
+											{% endfor %}
+										</tr>
+										
+										
+										<tr>
+											<td>Start Rate</td>
+											{% for x in matrial_list %}
+											<td>{{x.start_rate}}</td>
+											{% endfor %}
+										</tr>
+										<tr>
+											<td>End Rate</td>
+											{% for x in matrial_list %}
+											<td>{{x.end_rate}}</td>
+											{% endfor %}
+										</tr>
+
+										<tr>
+											<td>Description</td>
+											{% for x in matrial_list %}
+											<td>{{x.desc}}</td>
+											{% endfor %}
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="cta-sec tp-space">
+			<div class="container">
+				<div class="heading new-head">
+					<div class="heading-icon">
+						<img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+					</div>
+					<div class="heading-content">
+						<h3>Advisory Experts</h3>
+						<p>Fill form below and our agent will contact you shortly</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="cta-innr">
+							<form action="" id="contact-add" class="row align-items-end">
+								{% csrf_token %}
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<input type="text" name="name" class="form-control" placeholder="Enter Name">
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<input type="number" name="mobile" class="form-control" placeholder="Enter Phone Number">
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<textarea name="desc" id="" class="form-control" placeholder="Enter Description"></textarea>
+									
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+									<button class="thm-btn w-75" type="submit">Send</button>
+								</div>
+							</form>
+							<div class="row justify-content-center">
+								<div class="col-lg-4">
+									<div class="product-social">
+										<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+										<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+										<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		{% endblock body %}

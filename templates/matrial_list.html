@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Matrial List{% endblock %}</title>
+{% block body %}
+		<section class="space">
+			<div class="container">
+				<h3 class="subhead text-center">Matrial For Construction In Jaipur in Lowest Cost in Market</h3>
+				<div class="row">
+					<div class="col-xl-9 col-lg-8">
+						<div class="row">
+							{% for x in matrial_list %}
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+								<div class="product-innr">
+									<div class="product-img">
+										<img src="{{x.image.url}}" alt="">
+										<span class="product-rating"><i class="fas fa-star"></i> 4.9</span>
+									</div>
+									<div class="product-content">
+										<h4><a href="/matrial-update/{{x.pk}}/">{{x.name}}</a></h4>
+										<!-- <p><i class="fas fa-map-marker-alt me-1"></i> {{x.name}}</p> -->
+										<h6 class="text-white">{{x.type}}</h6>
+										
+										<div class="product-prc">
+											<div>
+												<p>INR {{x.start_rate}}-{{x.end_rate}}</p>
+											</div>
+											<div>
+												<a href="javascript:void(0);" class="matrial-fav" data-id="{{ x.id }}"><i class="far fa-bookmark"></i></a>
+												<a href="javascript:void(0);" class="matrial-com" data-id="{{ x.id }}"><i class="fas fa-sliders-h"></i></a>
+											</div>
+										</div>
+									</div>
+									<div class="product-social">
+										<a href="javascript:void(0);"><i class="far fa-phone fa-rotate-90"></i></a>
+										<a href="javascript:void(0);"><i class="fab fa-whatsapp"></i></a>
+										<a href="javascript:void(0);"><i class="far fa-envelope"></i></a>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							
+					<!-- <div class="col-xl-3 col-lg-4">
+						<div class="profile-card sticky-top">
+							<img src="assets/images/profile-img.png" alt="">
+							<h5 class="text-white">Fatima Ezzahra Elhabib</h5>
+							<p class="m-0">Property Consultant</p>
+							<div class="prfl-card-btn">
+								<a href="javascript:void"><i class="far fa-envelope me-2"></i>Email</a>
+								<a href="javascript:void"><i class="far fa-phone me-2 fa-rotate-90"></i>Call</a>
+								<a href="javascript:void"><i class="fab fa-whatsapp me-2"></i>Whatsapp</a>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</section>
+		{% endblock body %}

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"content="width=device-width, initial-scale=1.0">
+		<title>Home</title>
+		<!-- Favicon -->
+		<link rel="icon"href="{% static 'assets/images/favicon.png' %}"sizes="16x16">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css"href="{% static 'assets/css/bootstrap.min.css' %}" />
+		<!-- icon -->
+		<link rel="stylesheet" type="text/css"href="{% static 'assets/css/fontawsome.min.css' %}" />
+		<!-- Owl-Slider -->
+		<link rel="stylesheet"href="{% static 'assets/css/owl.carousel.min.css' %}" />
+		<link rel="stylesheet"href="{% static 'assets/css/owl.theme.default.min.css' %}" />
+		<!--  Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100;9..144,200;9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<!--  My_Styles -->
+		<link rel="stylesheet"type="text/css"href="{% static 'assets/css/style.css' %}" />
+		<link rel="stylesheet"type="text/css"href="{% static 'assets/css/responsive.css' %}" />
+	</head>
+	<body>
+		<header class="theame-header fixed-top">
+			<section class="tp-header">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 d-lg-block d-none">
+							<div class="tp-header-lft">
+								<ul>
+									<li>
+										<a href="javascript:void(0);"><i class="fab fa-instagram"></i></a>
+									</li>
+									<li>
+										<a href="javascript:void(0);"><i class="fab fa-telegram-plane"></i></a>
+									</li>
+									<li>
+										<a href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+									</li>
+									<li>
+										<a href="javascript:void(0);"><i class="fab fa-youtube"></i></a>
+									</li>
+									<li>
+										<a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-12 col-sm-12">
+							<div class="tp-heade-rgt text-end">
+								<ul>
+									<!-- <li>
+										<select name="" id="" class="form-control">
+											<option selected>EN</option>
+											<option value="">RU</option>
+											<option value="">ES</option>
+											<option value="">FR</option>
+											<option value="">RO</option>
+										</select>
+									</li> -->
+									<li>
+										<a href="/fav-list/"><i class="far fa-bookmark me-3"></i>Favorite</a>
+									</li>
+									<li>
+										<a href="/com-list/" class="compare"><i class="fas fa-sliders-h"></i></a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" class="fltr-btn" data-bs-toggle="modal" data-bs-target="#filter"><i class="far fa-filter"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand"href="/">
+						<img src="{% static 'assets/images/logo.png' %}"alt="">
+					</a>
+					<button class="navbar-toggler"type="button"data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent"aria-controls="navbarSupportedContent"aria-expanded="false"aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+					</button>
+					<div class="collapse navbar-collapse"id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a href="/" class="nav-link">Home</a>
+							</li>
+							<li class="nav-item">
+								<a href="/about/" class="nav-link">About Us</a>
+							</li>
+							<li class="nav-item">
+								<a href="/matrial-list/" class="nav-link">Matrial's</a>
+							</li>
+							<li class="nav-item">
+								<a href="/labour-list/" class="nav-link">Neighborhood</a>
+							</li>
+							<li class="nav-item">
+								<a href="/contact/" class="nav-link">Contact us </a>
+							</li>
+							<li class="nav-item">
+								<a href="/labour-add/" class="nav-link">Member</a>
+							</li>
+							<!-- <li class="nav-item">
+								<a href="blog.html" class="nav-link">News</a>
+							</li> -->
+							
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="container header-filter">
+				<form action="/labour-filter/" method="GET" >
+                    <div class="row align-items-center g-2">
+                        <div class="col-xl-3 col-lg-2 col-md-2 frm-bx">
+							<input type="text" name="address" class="form-control" placeholder="Kalwar Road, Govindpura">
+							<span class="far fa-search"></span>
+						</div>
+                        <div class="col-xl-3 col-lg-2 col-md-2 frm-bx">
+							<input type="text" name="name" class="form-control" placeholder="Name of Member">
+							<span class="far fa-search"></span>
+						</div>
+                        <div class="col-xl-2 col-lg-2 col-md-2 frm-bx">
+							<input type="text" name="mobile" class="form-control" placeholder="Number of Member">
+							<span class="far fa-search"></span>
+						</div>
+                        <div class="col-xl-3 col-lg-2 col-md-2 frm-bx">
+							<input type="text" name="desc" class="form-control" placeholder="Description of Member">
+							<span class="far fa-search"></span>
+						</div>
+                        
+                        <div class="col-xl-1 col-lg-2 col-md-2 frm-bx">
+							<button class="search-btn" type="submit"><i class="far fa-search"></i></button>
+						</div>
+                    </div>
+                </form>
+			</div>
+		</header>
+    {% block body %}
+    {% endblock body %}
+
+
+    <footer class="thm-footer tp-space">
+        <div class="container">
+            <div class="heading justify-content-between align-items-center">
+                <div class="heading-icon">
+                    <img src="{% static 'assets/images/heading-icon.png' %}" alt="">
+                </div>
+                <div class="heading-content">
+                    <h3 class="text-white">Contact Us</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <ul class="ftr-lnk">
+                                <li><a href="/labour-add/">Member</a></li>
+                                <li><a href="/labour-list/">Neighborhood</a></li>
+                                <li><a href="/matrial-list/">Matrial</a></li>
+                                <li><a href="/">Projects</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <ul class="ftr-lnk">
+                                <li><a href="/">Plumber</a></li>
+                                <li><a href="/">Light & Fitting</a></li>
+                                <li><a href="/">Flooring</a></li>
+                                <li><a href="/">Buliding</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <ul class="ftr-lnk">
+                                <li><a href="/about/">About Us </a></li>
+                                <li><a href="/contact/">Contact Us</a></li>
+                                <li><a href="/labour-add/">Member Add</a></li>
+                                <!-- <li><a href="blog.html">News & Blogs</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <div class="ftr-contact text-end tp-header-lft">
+                        <h4>Jaipur Rajasthan</h4>
+                        <p>Govindpura Kalwar Road Jaipur, Rajasthan 302012
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fab fa-telegram-plane"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fab fa-youtube"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                        </ul>
+                        <a href="tel:9887701938" class="ftr-btn">Call Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="copyright">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <p class="text-white mb-0">Low Cost Construction ©2025 All Rights Reserved</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 text-end">
+                        <ul class="copyright-lnk">
+                            <li><a href="javascript:void(0);">Terms and conditions </a></li>
+                            <li><a href="javascript:void(0);">privacy policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!-- Jquery -->
+    <script type="text/javascript" src="{% static 'assets/js/jquery-3.6.0.js' %}"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Owl-Carousel -->
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.js' %}"></script>
+    <!-- Custom -->
+    <script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+       
+$(document).ready(function() {
+    $("#contact-add").on("submit", function(event) {
+        event.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: `/contact-add/`,
+            data: $(this).serialize(),
+            success: function(response) {
+                // loader.style.display = 'none';
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.'
+                });
+            }
+        });
+    });
+});
+
+$(document).ready(function() {
+    $(".matrial-fav").on("click", function(event) {
+        event.preventDefault();
+
+        let matrialId = $(this).data("id"); // Get material ID from data attribute
+        let url = `/matrial-fav/${matrialId}/`; // API endpoint
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {}, // No extra data needed
+            headers: {
+                "X-CSRFToken": getCSRFToken() // Get CSRF token for Django
+            },
+            success: function(response) {
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message
+                    }).then(() => {
+                        // window.location.reload(); // Refresh page to reflect changes
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.'
+                });
+            }
+        });
+    });
+
+
+    // Function to get CSRF token from cookies
+    function getCSRFToken() {
+        let name = "csrftoken=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let cookies = decodedCookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+            if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return "";
+    }
+});
+
+
+$(document).ready(function() {
+    $(".labour-fav").on("click", function(event) {
+        event.preventDefault();
+
+        let labourId = $(this).data("id"); // Get material ID from data attribute
+        let url = `/labour-fav/${labourId}/`; // API endpoint
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {}, // No extra data needed
+            headers: {
+                "X-CSRFToken": getCSRFToken() // Get CSRF token for Django
+            },
+            success: function(response) {
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message
+                    }).then(() => {
+                        // window.location.reload(); // Refresh page to reflect changes
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.'
+                });
+            }
+        });
+    });
+
+
+    // Function to get CSRF token from cookies
+    function getCSRFToken() {
+        let name = "csrftoken=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let cookies = decodedCookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+            if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return "";
+    }
+});
+
+
+
+$(document).ready(function() {
+    $(".matrial-com").on("click", function(event) {
+        event.preventDefault();
+
+        let matrialId = $(this).data("id"); // Get material ID from data attribute
+        let url = `/matrial-com/${matrialId}/`; // API endpoint
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {}, // No extra data needed
+            headers: {
+                "X-CSRFToken": getCSRFToken() // Get CSRF token for Django
+            },
+            success: function(response) {
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message
+                    }).then(() => {
+                        // window.location.reload(); // Refresh page to reflect changes
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.'
+                });
+            }
+        });
+    });
+
+
+    // Function to get CSRF token from cookies
+    function getCSRFToken() {
+        let name = "csrftoken=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let cookies = decodedCookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+            if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return "";
+    }
+});
+
+
+$(document).ready(function() {
+    $(".labour-com").on("click", function(event) {
+        event.preventDefault();
+
+        let labourId = $(this).data("id"); // Get material ID from data attribute
+        let url = `/labour-com/${labourId}/`; // API endpoint
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {}, // No extra data needed
+            headers: {
+                "X-CSRFToken": getCSRFToken() // Get CSRF token for Django
+            },
+            success: function(response) {
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message
+                    }).then(() => {
+                        // window.location.reload(); // Refresh page to reflect changes
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.'
+                });
+            }
+        });
+    });
+
+
+    // Function to get CSRF token from cookies
+    function getCSRFToken() {
+        let name = "csrftoken=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let cookies = decodedCookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+            if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+            }
+        }
+        return "";
+    }
+});
+
+$(document).ready(function() {
+    $(".matrial-fav-delete, .labour-fav-delete, .matrial-com-delete, .labour-com-delete").on("click", function(event) {
+        event.preventDefault();
+
+        let itemId = $(this).data("id"); // Get item ID
+        let url = $(this).hasClass("matrial-fav-delete") ? `/matrial-fav/${itemId}/` :
+                  $(this).hasClass("labour-fav-delete") ? `/labour-fav/${itemId}/` :
+                  $(this).hasClass("matrial-com-delete") ? `/matrial-com/${itemId}/` :
+                  `/labour-com/${itemId}/`;
+
+        // let methodType = $(this).hasClass("delete") ? "DELETE" : "POST"; // Toggle between POST & DELETE
+
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            headers: {
+                "X-CSRFToken": getCSRFToken() // Django CSRF token
+            },
+            success: function(response) {
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message
+                    }).then(() => {
+                        window.location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.'
+                });
+            }
+        });
+    });
+
+    // CSRF Token function
+    function getCSRFToken() {
+        let name = "csrftoken=";
+        let cookies = decodeURIComponent(document.cookie).split(';');
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith(name)) {
+                return cookie.substring(name.length);
+            }
+        }
+        return "";
+    }
+});
+
+    </script>
+    {% block script %} 
+    {% endblock script %}
+</body>
+</html>
+<div class="modal fade filter-modal" id="filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Filter</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/labour-filter/" method="GET" class="row filter-frm">
+                <div class="col-lg-12 mb-4 frm-bx">
+                    <label for="">Search</label>
+                    <input type="text" name="address" class="form-control" placeholder="kalwar road , govindpura">
+                </div>
+                <div class="col-lg-12 mb-4 frm-bx">
+                    <label for="">Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Name of Member">
+                </div>
+                <div class="col-lg-12 mb-4 frm-bx">
+                    <label for="">Mobile</label>
+                    <input type="text" name="mobile" class="form-control" placeholder="Number of Member">
+                </div>
+                <div class="col-lg-12 mb-4 frm-bx">
+                    <label for="">Experties Title</label>
+                    <input type="text" name="mobile" class="form-control" placeholder="Number of Member">
+                </div>
+                <div class="col-lg-12 text-center">
+                    <button class="thm-btn w-50" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
